@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="text-center md:text-left">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
                             Hybrid Text Compression System
                         </h1>
                         <p className="text-lg md:text-xl text-blue-200 mb-8 max-w-xl mx-auto md:mx-0">
@@ -121,7 +121,7 @@ const FeaturesSection: React.FC = () => (
     <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">Key Features</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
                 <FeatureItem icon="cloud-upload" title="Easy Upload"/>
                 <FeatureItem icon="history" title="Compression History"/>
                 <FeatureItem icon="download" title="Instant Download"/>
@@ -148,7 +148,7 @@ const CtaSection: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Start Compressing?</h2>
             <p className="text-lg text-slate-600 mb-8">Join thousands of users who trust our hybrid compression system.</p>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  <button onClick={() => auth?.navigateTo('register')} className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
                     Create Account
                 </button>

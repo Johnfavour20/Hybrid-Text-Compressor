@@ -40,7 +40,7 @@ const LoginPage: React.FC = () => {
       <div className="min-h-[calc(100vh-128px)] flex items-center justify-center bg-slate-50 p-4">
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2">
           {/* Form Side */}
-          <div className="p-8 md:p-12">
+          <div className="p-6 sm:p-10">
             <div className="text-center mb-8">
               <Icon name="sign-in" className="w-12 h-12 mx-auto text-blue-500 mb-4" />
               <h2 className="text-3xl font-bold text-slate-800">Welcome Back</h2>

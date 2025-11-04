@@ -102,7 +102,7 @@ const DashboardPage: React.FC = () => {
     return (
         <Layout>
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-2xl p-8 mb-8 text-center shadow-lg">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-2xl p-6 sm:p-8 mb-8 text-center shadow-lg">
                     <h1 className="text-3xl md:text-4xl font-bold">Welcome back, {auth?.user?.username}!</h1>
                     <p className="mt-2 text-blue-200 text-lg">Compress your text files using our advanced hybrid algorithm.</p>
                 </div>
@@ -165,7 +165,7 @@ const UploadSection: React.FC<UploadSectionProps> = ({ file, isDragOver, isCompr
                     </button>
                 </div>
             ) : (
-                <div className="p-4">
+                <div className="p-2 sm:p-4">
                     <div className="flex items-center gap-4 bg-slate-100 p-4 rounded-lg mb-6">
                         <Icon name="file" className="w-10 h-10 text-blue-500 flex-shrink-0" />
                         <div className="flex-grow overflow-hidden">
@@ -233,7 +233,7 @@ const HistorySection: React.FC<{ history: CompressionResult[] }> = ({ history })
                 <Icon name="sync" className="w-5 h-5"/>
             </button>
         </div>
-        <div className="p-6 space-y-4 max-h-[600px] overflow-y-auto">
+        <div className="p-2 sm:p-6 space-y-4 max-h-[calc(100vh-250px)] lg:max-h-[600px] overflow-y-auto">
             {history.length > 0 ? (
                 history.map(item => <HistoryItem key={item.file_id} item={item} />)
             ) : (
@@ -261,16 +261,20 @@ const HistoryItem: React.FC<{ item: CompressionResult }> = ({ item }) => (
                 <Icon name="download" className="w-5 h-5"/>
             </button>
         </div>
-        <div className="grid grid-cols-3 gap-2 mt-3 text-center text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-2 gap-y-4 mt-4 text-center text-xs">
             <div>
-                <p className="text-slate-500">Size</p>
-                <p className="font-medium text-slate-700">{formatFileSize(item.original_size)} → {formatFileSize(item.compressed_size)}</p>
+                <p className="text-slate-500">Original Size</p>
+                <p className="font-medium text-slate-700">{formatFileSize(item.original_size)}</p>
             </div>
-            <div>
+             <div>
+                <p className="text-slate-500">Compressed Size</p>
+                <p className="font-medium text-slate-700">{formatFileSize(item.compressed_size)}</p>
+            </div>
+            <div className="sm:col-start-auto col-start-1">
                 <p className="text-slate-500">Ratio</p>
                 <p className="font-medium text-slate-700">{item.compression_ratio}:1</p>
             </div>
-            <div>
+            <div className="sm:col-start-auto col-start-2">
                 <p className="text-slate-500">Time</p>
                 <p className="font-medium text-slate-700">{item.compression_time}s</p>
             </div>
