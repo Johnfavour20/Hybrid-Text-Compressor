@@ -1,0 +1,5 @@
+{
+  "name": "Hybrid Text Compressor",
+  "description": "A web-based application that provides an efficient hybrid text compression system using Huffman Coding and LZW algorithms. Users can upload text files, view compression statistics, manage their compression history, and download the compressed files.",
+  "requestFramePermissions": []
+}
