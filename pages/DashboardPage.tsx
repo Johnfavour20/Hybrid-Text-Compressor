@@ -38,8 +38,9 @@ const DashboardPage: React.FC = () => {
     const { addToast } = useToast();
 
     const handleFileSelect = useCallback((selectedFile: File) => {
-        if (!selectedFile.name.toLowerCase().endsWith('.txt')) {
-            addToast('Please select a .txt file', 'error');
+        const fileName = selectedFile.name.toLowerCase();
+        if (!fileName.endsWith('.txt') && !fileName.endsWith('.docx')) {
+            addToast('Please select a .txt or .docx file', 'error');
             return;
         }
         if (selectedFile.size > 16 * 1024 * 1024) { // 16MB limit
@@ -158,7 +159,7 @@ const UploadSection: React.FC<UploadSectionProps> = ({ file, isDragOver, isCompr
                     <Icon name="cloud-upload" className="w-16 h-16 mx-auto text-blue-500 mb-4" />
                     <h3 className="text-xl font-semibold text-slate-800">Upload Text File</h3>
                     <p className="text-slate-500 mt-2 mb-6">Drag and drop your .txt file here or click to browse</p>
-                    <input type="file" id={inputId} accept=".txt" hidden onChange={(e) => e.target.files && onFileSelect(e.target.files[0])} />
+                    <input type="file" id={inputId} accept=".txt,.docx" hidden onChange={(e) => e.target.files && onFileSelect(e.target.files[0])} />
                     <button onClick={() => document.getElementById(inputId)?.click()} className="bg-blue-500 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2 mx-auto">
                         <Icon name="file" className="w-5 h-5"/>
                         Select File
